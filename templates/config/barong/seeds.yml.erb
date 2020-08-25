@@ -80,8 +80,8 @@ permissions:
  # has an ability to ban user
  - { role: accountant, verb: put, path: api/v2/barong/admin/users, action: accept }
  - { role: accountant, verb: put, path: api/v2/barong/admin/users/labels, action: drop }
- # ranger access
- - { role: accountant, verb: get, path: api/v2/ranger, action: accept }
+ # rango access
+ - { role: accountant, verb: get, path: api/v2/rango, action: accept }
  # accountant doesnt have access to manage platform roles and permissions
  - { role: accountant, verb: all, path: api/v2/barong/admin/permissions, action: drop }
  # we are watching after you 0_0
@@ -104,8 +104,8 @@ permissions:
  - { role: compliance, verb: get, path: admin/balance_sheet, action: accept }
  - { role: compliance, verb: get, path: admin/income_statement, action: accept }
  - { role: compliance, verb: get, path: assets, action: accept }
- # ranger access
- - { role: compliance, verb: get, path: api/v2/ranger, action: accept }
+ # rango access
+ - { role: compliance, verb: get, path: api/v2/rango, action: accept }
  # compliance doesnt have access to manage platform roles and permissions
  - { role: compliance, verb: all, path: api/v2/barong/admin/permissions, action: drop }
  # we are watching after you 0_0
@@ -121,8 +121,8 @@ permissions:
  - { role: technical, verb: all, path: admin/blockchains, action: accept }
  - { role: technical, verb: all, path: admin/currencies, action: accept }
 
- # ranger access
- - { role: technical, verb: get, path: api/v2/ranger, action: accept }
+ # rango access
+ - { role: technical, verb: get, path: api/v2/rango, action: accept }
  # technical doesnt have access to manage platform roles and permissions
  - { role: technical, verb: all, path: api/v2/barong/admin/permissions, action: drop }
  # we are watching after you 0_0
@@ -158,8 +158,8 @@ permissions:
 <%- end -%>
  - { role: trader, verb: all, path: api/v2/barong/resource, action: accept }
  - { role: trader, verb: all, path: api/v2/resource, action: accept }
- # ranger access
- - { role: trader, verb: get, path: api/v2/ranger, action: accept }
+ # rango access
+ - { role: trader, verb: get, path: api/v2/rango, action: accept }
 
  # MEMBER
  # has standard user permissions to ACCOUNT, MARKET, RESOURCE modules
@@ -173,8 +173,8 @@ permissions:
 <%- end -%>
  - { role: member, verb: all, path: api/v2/barong/resource, action: accept }
  - { role: member, verb: all, path: api/v2/resource, action: accept }
- # ranger access
- - { role: member, verb: get, path: api/v2/ranger, action: accept }
+ # rango access
+ - { role: member, verb: get, path: api/v2/rango, action: accept }
 
  # BROKER
  # has standard user permissions to ACCOUNT, MARKET, RESOURCE modules
@@ -188,5 +188,5 @@ permissions:
 <%- end -%>
  - { role: broker, verb: all, path: api/v2/barong/resource, action: accept }
  - { role: broker, verb: all, path: api/v2/resource, action: accept }
- # ranger access
- - { role: broker, verb: get, path: api/v2/ranger, action: accept }
+ # rango access
+ - { role: broker, verb: get, path: api/v2/rango, action: accept }
