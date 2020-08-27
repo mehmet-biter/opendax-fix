@@ -106,6 +106,35 @@ Email: admin@barong.io, password: 0lDHd9ufs9t@
 Email: john@barong.io, password: Am8icnzEI3d!
 ```
 
+
+### [optional] KYCAid 
+
+In order to  accelerate customer interaction, reduce risks and simplify business processes you can use KYC Verification Service from KYCaid.
+KYC goal is to prevent fraud and to decline users that don’t fulfill certain standards of credibility. 
+To learn more about KYCaid and pricing you can visit their website - [kycaid.com](https://www.kycaid.com/)
+
+#### How to integrate KYCaid to the platform?
+
+KYCaid already integrated with our stack, to use it you need to create account on [kycaid.com](https://www.kycaid.com/),
+/*  some futher steps */.
+
+After that all you have to do is to change several lines in `config/app.yml`:
+
+```bash
+kyc:
+  authorization_token: changeme             # your Production API token from 'Settings' section of kycaid.com
+  sandbox_mode: true                        # 'true' for test environment - documents will be verified/rejected automatically, without payment for verification 
+  api_endpoint: https://api.kycaid.com/
+```
+
+#### How to make start KYCaid on platform?
+
+Once you're done with the configuration: 
+- render the files using `rake render:config`
+- restart Barong service `docker-compose up -Vd barong`
+- start Sidekiq daemon `docker-compose up -d sidekiq`
+
+Ready! You can try KYC verification steps on your deployment. 
 ## Usage
 
 ### Initial configuration
@@ -127,6 +156,9 @@ Parameter | Description | Default
 `ssl.email` | email address used for SSL certificate issuing | `"support@example.com"`
 `images` | Docker image tags per component
 `vendor.frontend` | optional Git URL for a development frontend repo | `git@github.com:openware/baseapp.git`
+`kyc.authorization_token` |  optional API token for KYCaid use | `changeme`
+`kyc.sendbox` |  enable KYCaid test mode  | `true`
+`kyc.api_endpoint` |  API endpoint for KYCaid | `https://api.kycaid.com/`
 `vault.token` | Vault authentication token | `changeme `
 `database.host` | database host name | `db`
 `database.port` | database port | `3306 `
