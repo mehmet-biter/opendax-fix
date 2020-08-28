@@ -49,11 +49,12 @@ services:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb influx_writer"
 
-  rango:
+  ranger:
     restart: always
-    image: "<%= @config['images']['rango'] %>"
+    image: "<%= @config['images']['peatio'] %>"
     env_file:
-      - ../config/rango.env
+      - ../config/ranger.env
+    command: bash -c "bundle exec peatio service start ranger"
 
 <% unless @config['finex']['enabled'] %>
   matching:
