@@ -61,17 +61,17 @@ static_resources:
                 route:
                   cluster: peatio
               - match:
-                  prefix: "/api/v2/rango/public"
+                  prefix: "/api/v2/ranger/public"
                 route:
-                  cluster: rango
-                  prefix_rewrite: ""
+                  cluster: ranger
+                  prefix_rewrite: "/"
                   upgrade_configs:
                     upgrade_type: "websocket"
               - match:
-                  prefix: "/api/v2/rango/private"
+                  prefix: "/api/v2/ranger/private"
                 route:
-                  cluster: rango
-                  prefix_rewrite: ""
+                  cluster: ranger
+                  prefix_rewrite: "/"
                   upgrade_configs:
                     upgrade_type: "websocket"
           http_filters:
@@ -156,13 +156,13 @@ static_resources:
     - socket_address:
         address: finex-api
         port_value: 8080
-  - name: rango
+  - name: ranger
     connect_timeout: 0.25s
     type: strict_dns
     lb_policy: round_robin
     hosts:
     - socket_address:
-        address: rango
+        address: ranger
         port_value: 8080
 admin:
   access_log_path: "/dev/null"
