@@ -1,20 +1,22 @@
 - name:      Peatio Default Engine
   driver:    peatio
   state:     online
-- name:      Local Finex Spot Engine
+- name:      Local-Finex-Spot-Engine
   driver:    finex-spot
   state:     online
-- name:      Opendax Finex Spot Engine
-  driver:    opendax
-  url:       https://www.opendax.io/api/v2/finex
-  key:       ""
-  secret:    ""
+- name:      Bifinex
+  driver:    bitfinex
+  uid:       IDF46CAA29E6
+  url:       http://api-pub.bitfinex.com/ws/2
+  key:       "BAtB35sJlHiL9alFJ8jwY5Fm99MOsfDoPfMzD8rsaVU"
+  secret:    "HcRt6DWmYn2wWegax7UAHi07SxFfE5DqzIOFWAALC7O"
   # The data field for store some special data engine
   # Can be used in upstream worker
   data: |
     {
-          "rest"=>"https://www.opendax.io/api/v2/finex",
-          "websocket"=>"wss://www.opendax.io/api/v2/ranger",
+          "rest"=>"https://api-pub.bitfinex.com/ws/2",
+          "websocket"=>"wss://api-pub.bitfinex.com/ws/2",
           "trade_proxy"=>true,
+          "orderbook_proxy"=>true,
     }
   state:    online
